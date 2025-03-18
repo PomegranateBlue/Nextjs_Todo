@@ -2,19 +2,8 @@ import Link from "next/link";
 
 const Home = () => {
   return (
-    <div className="flex gap-6  ">
-      <Link
-        href="/"
-        className="text-3xl border-white rounded-md border-[1px] p-2"
-      >
-        Home
-      </Link>
-      <Link
-        href="/todos"
-        className="text-3xl border-white rounded-md border-[1px] p-2"
-      >
-        Todos
-      </Link>
+    <div>
+      <p>최원장 튜터님의 Next.js TodoList 만들기</p>
     </div>
   );
 };

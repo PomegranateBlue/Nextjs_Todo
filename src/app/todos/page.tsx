@@ -1,8 +1,10 @@
 "use client";
 
 import { Todo } from "../types/todo";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+
+import { addTodo } from "../todoApi/todoApi";
 const TodosPage = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -17,12 +19,17 @@ const TodosPage = () => {
     }
   };
 
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    addTodo({ title, content, completed: false });
+  };
+
   useEffect(() => {
     getTodos();
   }, []);
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={title}
@@ -37,6 +44,7 @@ const TodosPage = () => {
           required
           onChange={(e) => setContent(e.target.value)}
         />
+        <button type="submit">ADD</button>
       </form>
       <div>
         {todos.map((todo) => (
