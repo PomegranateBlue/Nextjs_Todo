@@ -20,7 +20,7 @@ export const addTodo = async (newTodo: Omit<Todo, "id">) => {
   return data;
 };
 
-export const deleteTodo = async (id: Pick<Todo, "id">) => {
+export const deleteTodo = async ({ id }: Pick<Todo, "id">) => {
   const response = await fetch(`${TODO_URL}/${id}`, {
     method: "DELETE",
   });

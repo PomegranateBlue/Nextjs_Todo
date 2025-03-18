@@ -9,6 +9,8 @@ const TodoForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setTitle("");
+    setContent("");
     addTodo({ title, content, completed: false });
   };
   return (

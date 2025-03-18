@@ -4,8 +4,8 @@ import { Todo } from "../types/todo";
 const TodoList = () => {
   const { data: todos } = useTodos();
   const { mutate: deleteTodo } = useDeleteTodo();
-  const handleDelete = (id: Pick<Todo, "id">) => {
-    deleteTodo(id);
+  const handleDelete = (id: number) => {
+    deleteTodo({ id });
   };
 
   console.log(todos);
