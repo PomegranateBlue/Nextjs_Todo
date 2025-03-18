@@ -1,4 +1,4 @@
-import { addTodo, deleteTodo } from "@/app/todoApi/todoApi";
+import { addTodo, deleteTodo, toggleCompleteTodo } from "@/app/todoApi/todoApi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 export const useAddTodo = () => {
   const queryClient = useQueryClient();
@@ -16,6 +16,17 @@ export const useDeleteTodo = () => {
 
   return useMutation({
     mutationFn: deleteTodo,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["todos"] });
+    },
+  });
+};
+
+export const useToggleComplete = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: toggleCompleteTodo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["todos"] });
     },

@@ -27,3 +27,15 @@ export const deleteTodo = async ({ id }: Pick<Todo, "id">) => {
   const data = response.json();
   return data;
 };
+
+export const toggleCompleteTodo = async ({
+  id,
+  completed,
+}: Pick<Todo, "id" | "completed">) => {
+  const response = await fetch(`${TODO_URL}/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify({ completed }),
+  });
+  const data = await response.json();
+  return data;
+};

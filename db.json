@@ -1,9 +1,15 @@
 {
   "todos": [
     {
-      "id": "1",
-      "title": "todo title",
-      "content": "todo content",
+      "id": "6f3e",
+      "title": "왜 새로고침해야",
+      "content": "적용한 코드가 보일까",
+      "completed": false
+    },
+    {
+      "id": "b100",
+      "title": "잘 만들었겠지?",
+      "content": "아마도",
       "completed": true
     }
   ]
